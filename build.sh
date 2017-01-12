@@ -71,12 +71,12 @@ InstallDependenciesOpenSUSE() {
 
 InstallNvidiaSDK() {
     echo "Installing the NVidia Video SDK"
-    sdk_version="6.0.1"
+    sdk_version="7.1.9"
     sdk_basename="nvidia_video_sdk_${sdk_version}"
-    sdk_url="http://developer.download.nvidia.com/assets/cuda/files/${sdk_basename}.zip"
+    sdk_url="https://github.com/jniltinho/oficinadotux/raw/master/ffmpeg_nvenc/${sdk_basename}.tgz"
     cd $source_dir
     wget $sdk_url
-    unzip "${sdk_basename}.zip"
+    tar -xvf "${sdk_basename}.tgz"
     cd $sdk_basename
     cp -a Samples/common/inc/* $inc_dir
 }
@@ -146,7 +146,7 @@ BuildOpus() {
 BuildVpx() {
     echo "Compiling libvpx"
     cd $source_dir
-    vpx_version="1.5.0"
+    vpx_version="1.6.0"
     vpx_basename="libvpx-${vpx_version}"
     vpx_url="http://storage.googleapis.com/downloads.webmproject.org/releases/webm/${vpx_basename}.tar.bz2"
     wget $vpx_url
@@ -160,7 +160,7 @@ BuildVpx() {
 BuildFFmpeg() {
     echo "Compiling ffmpeg"
     cd $source_dir
-    ffmpeg_version="3.1"
+    ffmpeg_version="3.2.2"
     if [ ! -f  ffmpeg-${ffmpeg_version}.tar.bz2 ]; then
         wget http://ffmpeg.org/releases/ffmpeg-${ffmpeg_version}.tar.bz2
     fi
