@@ -78,7 +78,7 @@ InstallNvidiaSDK() {
     wget $sdk_url
     tar -xvf "${sdk_basename}.tgz"
     cd $sdk_basename
-    cp -a Samples/common/inc/* $inc_dir
+    cp -a * $inc_dir
 }
 
 BuildYasm() {
